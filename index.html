@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Food Calorie Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🍽️ AI Food Calorie Tracker</h1>
+                <p>Upload a photo of your meal to detect food items and estimate calories</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <div class="upload-icon">📸</div>
+                        <h3>Upload Food Image</h3>
+                        <p>Click or drag and drop an image here</p>
+                        <button class="btn-primary" onclick="document.getElementById('imageInput').click()">
+                            Choose Image
+                        </button>
+                    </div>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <img id="imagePreview" src="" alt="Preview">
+                    <div class="preview-actions">
+                        <button class="btn-primary" id="analyzeBtn">
+                            <span id="btnText">🔍 Analyze Food</span>
+                            <span id="btnLoader" class="loader" style="display: none;"></span>
+                        </button>
+                        <button class="btn-secondary" id="changeImageBtn">Change Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h2>📊 Detection Results</h2>
+                        <div class="annotated-image-container">
+                            <img id="annotatedImage" src="" alt="Annotated">
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h2>🔢 Calorie Summary</h2>
+                        <div class="summary-stats">
+                            <div class="stat-box total-calories">
+                                <div class="stat-label">Total Calories</div>
+                                <div class="stat-value" id="totalCalories">0 kcal</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Items Detected</div>
+                                <div class="stat-value" id="itemCount">0</div>
+                            </div>
+                        </div>
+
+                        <h3>Detected Items:</h3>
+                        <div class="items-list" id="itemsList"></div>
+
+                        <div class="voice-output">
+                            <button class="btn-voice" id="voiceBtn">
+                                🔊 Listen to Summary
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="database-section">
+                <h2>📚 Calorie Database</h2>
+                <p class="section-description">Browse or search the food calorie database</p>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search food items...">
+                </div>
+
+                <div class="database-grid" id="databaseGrid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by YOLOv8 & Computer Vision | Built with ❤️ for healthy living</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
